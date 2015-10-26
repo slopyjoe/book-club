@@ -1,0 +1,33 @@
+@()(implicit request: RequestHeader, messages: Messages)
+<div class="user col-md-6 col-md-offset-3" ng-controller="BookViewCtrl" ng-init="init()">
+    <div class="row">
+        <hr class="col-md-12" />
+        <h4 class="col-md-8">Book : {{book.name}}</h4>
+        <!-- Maybe when we get book avatars-->
+        <!--<div class="col-md-4 text-right">-->
+            <!--<img ng-if="!user.avatarURL" src="@routes.Assets.at("images/silhouette.png")" height="40px" />-->
+            <!--<img ng-if="user.avatarURL" ng-src="{{user.avatarURL}}" height="40px" />-->
+        <!--</div>-->
+        <hr class="col-md-12" />
+    </div>
+    <div class="row data">
+        <div class="col-md-12">
+            <div class="row">
+                <p class="col-md-6"><strong>@Messages("book.name"):</strong></p><p class="col-md-6">{{book.name ? book.name : 'None'}}</p>
+            </div>
+            <div class="row">
+                <p class="col-md-6"><strong>@Messages("book.author"):</strong></p><p class="col-md-6">{{book.author ? book.author : 'None'}}</p>
+            </div>
+            <div class="row">
+                <p class="col-md-6"><strong>@Messages("book.description"):</strong></p><p class="col-md-6">{{book.description ? book.description : 'None'}}</p>
+            </div>
+            <div class="row">
+                <p class="col-md-6"><strong>@Messages("book.chapters"):</strong></p><p class="col-md-6">{{book.chapters ? book.chapters : 'None'}}</p>
+            </div>
+            <div class="row">
+                <p class="col-md-6"><strong>@Messages("book.tags"):</strong></p><p class="col-md-6">{{book.tags ? book.tags : 'None'}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,41 @@
+@()(implicit request: RequestHeader, messages: Messages)
+
+@import b3.inline.fieldConstructor
+@import forms.BookForm.form
+
+<fieldset class="col-md-6 col-md-offset-3" ng-controller="BookNewCtrl">
+    <legend >@Messages("book.creation.header")</legend>
+    <form name="form" id="sign-up-form" ng-submit="submit()" ng-model-options="{ updateOn: 'submit blur' }" autocomplete="off">
+
+        @b3.text(form("name"), '_hiddenLabel -> Messages("book.name"), 'placeholder -> Messages("book.name"), 'class -> "form-control input-lg", 'required -> "", Symbol("ng-model") -> "name")
+        <div class="help-block text-danger" ng-if="form.name.$dirty" ng-messages="form.name.$error">
+            <div ng-message="required">@Messages("error.required")</div>
+        </div>
+
+        @b3.text(form("author"), '_hiddenLabel -> Messages("book.author"), 'placeholder -> Messages("book.author"), 'class -> "form-control input-lg", 'required -> "", Symbol("ng-model") -> "author")
+        <div class="help-block text-danger" ng-if="form.author.$dirty" ng-messages="form.author.$error">
+            <div ng-message="required">@Messages("error.required")</div>
+        </div>
+
+        @b3.text(form("description"), '_hiddenLabel -> Messages("book.description"), 'placeholder -> Messages("book.description"), 'class -> "form-control input-lg", 'required -> "", Symbol("ng-model") -> "description")
+        <div class="help-block text-danger" ng-if="form.description.$dirty" ng-messages="form.description.$error">
+            <div ng-message="required">@Messages("error.required")</div>
+        </div>
+
+
+        @b3.number(form("chapters"), '_hiddenLabel -> Messages("book.chapters"), 'placeholder -> Messages("book.chapters"), 'class -> "form-control input-lg", 'required -> "", Symbol("ng-model") -> "chapters")
+        <div class="help-block text-danger" ng-if="form.chapters.$dirty" ng-messages="form.chapters.$error">
+            <div ng-message="required">@Messages("error.required")</div>
+        </div>
+
+
+        @b3.text( form("tags"), '_hiddenLabel -> Messages("book.tags"), 'placeholder -> Messages("book.tags"),  'class -> "form-control input-lg", 'required -> "", Symbol("ng-model") -> "tags")
+        <div class="help-block text-danger" ng-if="form.tags.$dirty" ng-messages="form.tags.$error">
+            <div ng-message="required">@Messages("error.required")</div>
+        </div>
+
+        <div class="form-group">
+            <button ng-disabled="form.$invalid" id="submit" type="submit" value="submit" class="btn btn-lg btn-primary btn-block">@Messages("sign.up")</button>
+        </div>
+    </form>
+</fieldset>

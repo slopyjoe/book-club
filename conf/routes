@@ -1,0 +1,19 @@
+GET         /assets/*file                           controllers.Assets.at(path="/public", file)
+
+GET         /views/$template<.+>.html   controllers.ApplicationController.view(template)
+GET         /user                                     controllers.ApplicationController.user
+GET         /signOut                                controllers.ApplicationController.signOut
+
+POST       /signIn                                   controllers.security.CredentialsAuthController.authenticate
+POST       /signUp                                  controllers.security.SignUpController.signUp
+
+GET         /books                                  controllers.BookController.index
+GET         /books/:id                             controllers.BookController.find(id:java.util.UUID)
+POST       /books                                   controllers.BookController.create
+
+GET         /bookClubs                            controllers.BookClubController.index
+GET         /bookClubs/:id                       controllers.BookClubController.find(id:java.util.UUID)
+POST       /bookClubs                             controllers.BookClubController.create
+
+GET         /                                           com.tuplejump.playYeoman.Yeoman.index
+->           /                                           yeoman.Routes

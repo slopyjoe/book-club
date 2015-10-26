@@ -1,0 +1,30 @@
+@()(implicit request: RequestHeader, messages: Messages)
+
+<div class="books col-md-6 col-md-offset-3" ng-controller="BookListCtrl" ng-init="init()">
+    <div class="row">
+        <h4 class="col-md-8">@Messages("books.list")</h4>
+    </div>
+    <div class="row data">
+        <table class="table table-striped">
+            <tr>
+                <th>@Messages("book.name")</th>
+                <th>@Messages("book.author")</th>
+                <th>@Messages("book.description")</th>
+                <th>@Messages("book.chapters")</th>
+                <th>@Messages("book.tags")</th>
+            </tr>
+            <tr ng-repeat="book in books">
+                <td><a ui-sref="booksView({bookId:book.id})">{{book.name}}</a></td>
+                <td>{{book.author}}</td>
+                <td>{{book.description}}</td>
+                <td>{{book.chapters}}</td>
+                <td>{{book.tags}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="row data">
+        <a ui-sref="booksNew">Create</a>
+    </div>
+</div>
+
+

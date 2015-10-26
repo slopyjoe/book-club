@@ -1,0 +1,61 @@
+@()(implicit request: RequestHeader, messages: Messages)
+<div class="user col-md-6 col-md-offset-3" ng-controller="BookClubViewCtrl" ng-init="init()">
+    <div class="bookClubHeader row">
+        <hr class="col-md-12" />
+        <h4 class="col-md-8">BookClub : {{bookClub.name}}</h4>
+        <hr class="col-md-12" />
+    </div>
+    <div class="bookClubDetails row data">
+        <div class="col-md-12">
+            <div class="row">
+                <p class="col-md-6"><strong>@Messages("book.name"):</strong></p><p class="col-md-6">{{bookClub.name ? bookClub.name : 'None'}}</p>
+            </div>
+            <div class="row">
+                <p class="col-md-6"><strong>@Messages("about"):</strong></p><p class="col-md-6">{{bookClub.about ? bookClub.about : 'None'}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="usersHeader row">
+        <hr class="col-md-12" />
+        <h4 class="col-md-8">Users: {{users.length}}</h4>
+        <hr class="col-md-12" />
+    </div>
+    <div class="bookClubUsers row data">
+        <table class="table table-striped">
+            <tr>
+                <th>@Messages("first.name")</th>
+                <th>@Messages("last.name")</th>
+                <th>@Messages("email")</th>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="books row">
+        <hr class="col-md-12" />
+        <h4 class="col-md-8">Books: {{books.length}}</h4>
+        <hr class="col-md-12" />
+    </div>
+    <div class="bookClubBooks row data">
+        <table class="table table-striped">
+            <tr>
+                <th>@Messages("book.name")</th>
+                <th>@Messages("book.author")</th>
+                <th>@Messages("book.description")</th>
+                <th>@Messages("book.chapters")</th>
+                <th>@Messages("book.tags")</th>
+            </tr>
+            <tr ng-repeat="book in books">
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.description}}</td>
+                <td>{{book.chapters}}</td>
+                <td>{{book.tags}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
